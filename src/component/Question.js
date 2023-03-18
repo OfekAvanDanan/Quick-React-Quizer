@@ -6,23 +6,24 @@ export default function Question(props){
     backgroundColor:"#D6DBF5",
     border:"#D6DBF5"
   }
-  const printAns = props.questionData.answers.map(answer=>{
+  const printAns = props.answers.map((answer,index)=>{
+
     return(
       <h3
-      key={answer.key}
-      onClick={(e) =>props.selectAns(e,answer.questionKey,answer.key)}
-      style={answer.selected ? selectedStyle : {} }
+      key={index}
+      style = {index === props.selected ? selectedStyle : {}}
+      onClick = {(e)=>props.selectAnswer(e,props.id,index)}
       >
-      {answer.ans}
+      {answer}
       </h3>
     )
   })
 
   return(
     <div>
-    <h2>{props.questionData.question}</h2>
+    <h2>{props.question}</h2>
       <div className="answers">
-          {printAns}
+        {printAns}
       </div>
       <hr/>
     </div>)
