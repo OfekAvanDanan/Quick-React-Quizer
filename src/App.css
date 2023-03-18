@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
+body{
+    background-color: #F5F7FB ;
+    color: #293264;
+    font-family: 'Karla', sans-serif;
+    
+    
+
+
+    background-image: url(./Images/blueBlob.svg),url(./Images/yellowBlob.svg);
+    background-repeat: no-repeat;
+    background-position: 0% 100%,100% 0%;
+    background-size: 40%,40%;
+    
+    min-height: 800px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main{
+    width: 800px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1{
+    font-size: 32;
+    line-height: 37px;
+    text-align: center;
+
+    color: #293264;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.openingText{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #293264;
 }
 
-.App-link {
-  color: #61dafb;
+button{
+    background: #4D5B9E;
+    border-radius: 15px;
+    border: none;
+    padding: 15px 29px;
+
+    font-family: 'Karla', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    color: #F5F7FB;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+h2{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 12px;
+    margin-top: 14px;
+}
+
+.answers{
+    display: flex;
+    
+}
+h3{
+    display: flex;
+    align-items: center;
+    font-weight: 500px;
+    font-size: 10px;
+    padding: 4px;
+    border: 1px solid #4D5B9E;
+    border-radius: 8px;
+    margin-right: 13px;
+    text-align: center;
+}
+
+
+#center-btn{
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr{
+    border: 0.794239px solid #DBDEF0;
+    margin: 15px 0 15px 0;
 }
