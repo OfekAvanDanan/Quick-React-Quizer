@@ -23,20 +23,21 @@ export default function App() {
 
 
 
-  //genarate answers
+  //generate answers
   React.useEffect(function(){
-    //currect answers arr  
-    let currectAnswers = []
-    for (let i = 0 ; i < 10 ; i++){
-      currectAnswers.push(Math.floor(Math.random()*4))
+    //current answers arr  
+    let currentAnswers = []
+    const QUESTIONS_NUMBER = 10, ANSWERS_NUMBER = 4
+    for (let i = 0 ; i < QUESTIONS_NUMBER ; i++){
+      currentAnswers.push(Math.floor(Math.random()*4))
     }
     setQuestions(questionsData.map((question,index)=>{
     //generating answers
       
     const ans = []
     let ansCount = 0;
-    for (let i = 0 ; i < 4 ; i++){
-      if (i===currectAnswers[index]) ans.push(question.correctAnswer)
+    for (let i = 0 ; i < ANSWERS_NUMBER ; i++){
+      if (i===currentAnswers[index]) ans.push(question.correctAnswer)
       else {
         ans.push(question.incorrectAnswers[ansCount])
         ansCount++
@@ -44,7 +45,7 @@ export default function App() {
       }
       return{
         question:question.question,
-        currectAnswer:currectAnswers[index],
+        currentAnswer:currentAnswers[index],
         selectedAnswer:-1,
         answers:[ans[0],ans[1],ans[2],ans[3]],
       }
@@ -52,29 +53,29 @@ export default function App() {
   },[questionsData])
 
 
+  // Selecting answer
     function selectAnswer (e,q,a){
      if (mode ===1) {
       //console.log(q,a)
-      setQuestions(oldquestions => (oldquestions.map((quesion,index)=>(
+      setQuestions(oldQuestions => (oldQuestions.map((question,index)=>(
         index === q ? {
-          ...quesion,
+          ...question,
           selectedAnswer:a
-        }:quesion
+        }:question
       ))
       ))}
     }
 
     function printAllQuestions () {
-      const allQuestions = questions.map((quesion,index)=>{
-        
+      const allQuestions = questions.map((question,index)=>{
         return(
         <Question
         key = {index}
         id = {index}
-        question = {quesion.question}
-        answers = {quesion.answers}
-        currectAnswer = {quesion.currectAnswer}
-        selected = {quesion.selectedAnswer}
+        question = {question.question}
+        answers = {question.answers}
+        currentAnswer = {question.currentAnswer}
+        selected = {question.selectedAnswer}
         selectAnswer = {selectAnswer}
         mode = {mode}
           />)
@@ -94,10 +95,9 @@ export default function App() {
       setScore(()=>{
         let counter = 0
         for(let i = 0 ; i < questions.length ; i++){
-          const quesion = questions[i]
-          if(quesion.currectAnswer === quesion.selectedAnswer){
+          const question = questions[i]
+          if(question.currentAnswer === question.selectedAnswer){
             counter+=1
-            console.log("44")
           }
         }
         return counter
@@ -114,11 +114,11 @@ export default function App() {
 
   return (
     <div className="main">
-      {mode===0 ? //starting screen
+      {mode === 0 ? //starting screen
       (<div className="openingText">
-      <h1>Quizzical</h1>
-      <p>Some description if needed</p>
-      <button onClick={startQuiz}>Start Quiz!</button>
+        <h1>Quizzical</h1>
+        <p>Some description if needed</p>
+        <button onClick={startQuiz}>Start Quiz!</button>
       </div>)
        ://question screen
        (<div className="questions">
