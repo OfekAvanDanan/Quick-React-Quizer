@@ -1,4 +1,4 @@
-# Quick-React-Quizer
+# Fun-React-Quizer
 
 Quick-React-Quizer is a React-based application that allows users to solve quiz questions and compete against themselves for a high score. The questions are imported from an external API, and the final score is displayed at the end of the quiz based on the user's performance.
 
